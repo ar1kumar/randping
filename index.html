@@ -91,11 +91,13 @@
         window.onLineHandler = function(){
 			console.log('online');
 			$('#offline').hide();
+			$('.eminemt').height('100%');
 			$('#online').show();
         };
         window.offLineHandler = function(){
 			console.log('offline');
 			$('#online').hide();
+			$('.eminem').height($(document).height());
 			$('#offline').show();
         };
 		
