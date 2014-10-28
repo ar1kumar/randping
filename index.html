@@ -18,8 +18,8 @@
       #messages li { padding: 5px 10px; }
       #messages li:nth-child(odd) { background: #eee; }
 	  .eminem {
-		  height: 100%;
 		  width: 100%;
+		  height: 100%;
 	  }
 	  #online {
 		  display: none;
@@ -72,7 +72,8 @@
 			    };
 
 		        socket.emit('chat message',content);
-		        $('body').scrollTop($(this).height());
+		        $('body').scrollTop($(document).height());
+				$('.eminem').height($(document).height());
 		        $('#m').val('');
 		        return false;
 		      });
@@ -82,7 +83,8 @@
 			         $('#messages').append(msg.uid+" says --");
 	    		}
 		        $('#messages').append($('<li>').text(msg.msg));
-		        $('body').scrollTop($(this).height());
+		        $('body').scrollTop($(document).height());
+				$('.eminem').height($(document).height());
 		      });
     	});
 		
