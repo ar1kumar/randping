@@ -72,6 +72,7 @@
 			    };
 
 		        socket.emit('chat message',content);
+		        $('body').scrollTop($(this).height());
 		        $('#m').val('');
 		        return false;
 		      });
