@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Document</title>
+    <title>Mayaaaaaannnnkkkkk...</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
@@ -11,19 +11,43 @@
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages li { padding: 5px 10px; }
       #messages li:nth-child(odd) { background: #eee; }
+	  #online {
+		  display: none;
+		  height: 100%;
+		  width: 100%;
+	  }
+	  #offline {
+		  display: none;
+		  width:100%;
+		  
+	  }
     </style>
+	<script src="online.js"></script>
+	<script type="text/javascript">
+	var loaded = false;
+	
+	</script>
   </head>
   <body>
-    <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
+	  <div class="eminem">
+	  	<div id="online">
+	  		<p>The internet's working, <span id="name"></span>. Praise be to Mayank!</p>
+	  	</div>
+		<div id="offline">
+			It's fucked.
+		    <ul id="messages"></ul>
+		    <form action="">
+		      <input id="m" autocomplete="off" /><button>Send</button>
+		    </form>
+		</div>
+	  </div>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
+		var uid;
     	$(document).ready(function(){
-    		  var uid = prompt("What you wanna call yourself ?");
-    		  
+    		  uid = prompt("What are you called?");
+    		  $('#online #name').html(uid);
 	    	  var socket = io();
 		      $('form').submit(function(){
 			    
@@ -45,6 +69,18 @@
 		          
 		      });
     	});
+		
+        window.onLineHandler = function(){
+			console.log('online');
+			$('#offline').hide();
+			$('#online').show();
+        };
+        window.offLineHandler = function(){
+			console.log('offline');
+			$('#online').hide();
+			$('#offline').show();
+        };
+		
     </script>
   </body>
 </html>
