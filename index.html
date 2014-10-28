@@ -93,8 +93,9 @@
         window.offLineHandler = function(){
 			console.log('offline');
 			$('#online').hide();
-			$('.eminem').height($(document).height());
 			$('#offline').show();
+			$('.eminem').height($(document).height());
+	        $('body').scrollTop($(document).height());
         };
 		
     </script>
