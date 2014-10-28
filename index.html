@@ -81,7 +81,7 @@
 			         $('#messages').append(msg.uid+" says --");
 	    		}
 		        $('#messages').append($('<li>').text(msg.msg));
-		          
+		        $('body').scrollTop($(this).height());
 		      });
     	});
 		
