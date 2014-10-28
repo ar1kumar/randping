@@ -61,16 +61,16 @@
     		  $('#online #name').html(uid);
 	    	  var socket = io();
 		      $('form').submit(function(){
-			    
-			    var content = {
-			    	msg : $('#m').val(),
-			    	uid : uid
-			    };
-
-		        socket.emit('chat message',content);
-		        $('body').scrollTop($(document).height());
-				$('.eminem').height($(document).height());
-		        $('#m').val('');
+				  if($('#m').val() != ""){
+	  			    var content = {
+	  			    	msg : $('#m').val(),
+	  			    	uid : uid
+	  			    };
+	  		        socket.emit('chat message',content);
+	  		        $('body').scrollTop($(document).height());
+	  				$('.eminem').height($(document).height());
+	  		        $('#m').val('');
+				  }
 		        return false;
 		      });
 		      
