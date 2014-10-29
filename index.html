@@ -58,6 +58,9 @@
 	  }
     </style>
 	<script src="online.js"></script>
+	<script>
+		var loaded = false;
+	</script>
   </head>
   <body>
 	<audio src="sounds/halleluja.mp3" id="praise"></audio>
@@ -118,6 +121,21 @@
 			$('.eminem').height('100%');
 			$('#online').show();
 			document.title = "ONLINE";
+			if(loaded){
+				for(var i=0; i <= $('audio').length; i++){
+					if(i == $('audio').length){
+						$('#praise')[0].play();
+					}
+					else {
+						$('audio')[i].pause();
+						$('audio')[i].currentTime = 0;
+					}
+				}
+			}
+			else {
+				$('#praise')[0].play();
+				loaded = true;
+			}
 			$('#praise')[0].play();
 			if($('#dynamicfav').length > 0){
 				$('#dynamicfav').attr('href', 'images/green.ico');
@@ -131,13 +149,28 @@
 			    document.getElementsByTagName('head')[0].appendChild(link);
 			}
         };
+		
         window.offLineHandler = function(){
 			console.log('offline');
 			$('#online').hide();
 			$('#offline').show();
 			$('.eminem').height($(document).height());
 	        $('body').scrollTop($(document).height());
-			$('#damn')[0].play();
+			if(loaded){
+				for(var i=0; i <= $('audio').length; i++){
+					if(i == $('audio').length){
+						$('#damn')[0].play();
+					}
+					else {
+						$('audio')[i].pause();
+						$('audio')[i].currentTime = 0;
+					}
+				}
+			}
+			else {
+				$('#damn')[0].play();
+				loaded = true;
+			}
 			document.title = "OFFLINE";
 			if($('#dynamicfav').length > 0){
 				$('#dynamicfav').attr('href', 'images/red.ico');
