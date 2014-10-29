@@ -60,6 +60,8 @@
 	<script src="online.js"></script>
   </head>
   <body>
+	<audio src="sounds/halleluja.mp3" id="praise"></audio>
+	<audio src="sounds/ofortuna.mp3" id="damn"></audio>
 	  <div class="eminem">
 	  	<div id="online">
 			<div class="top">
@@ -116,6 +118,7 @@
 			$('.eminem').height('100%');
 			$('#online').show();
 			document.title = "ONLINE";
+			$('#praise')[0].play();
 			if($('#dynamicfav').length > 0){
 				$('#dynamicfav').attr('href', 'images/green.ico');
 			}
@@ -134,6 +137,7 @@
 			$('#offline').show();
 			$('.eminem').height($(document).height());
 	        $('body').scrollTop($(document).height());
+			$('#damn')[0].play();
 			document.title = "OFFLINE";
 			if($('#dynamicfav').length > 0){
 				$('#dynamicfav').attr('href', 'images/red.ico');
