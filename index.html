@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Mayaaaaaannnnkkkkk...</title>
+    <title>Mayank Chat</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
 	  html,body {
@@ -25,15 +25,35 @@
 		  display: none;
 		  height: 100%;
 		  width: 100%;
+	  }
+	  .top {
+		  width: 100%;
+		  height: 6%;
+		  padding: 2%;
+		  font-family: 'Impact';
+		  font-size: 2em;
+		  text-align: center;
+	  }
+	  .middle {
 		  background: url('images/praisemayank.jpg') center no-repeat;
-		  background-size: auto 100%;;
+		  background-size: auto 100%;
+		  width:100%;
+		  height:80%;
+	  }
+	  .bottom {
+		  width: 100%;
+		  height: 6%;
+		  padding: 2%;
+		  font-family: 'Impact';
+		  font-size: 2em;
+		  text-align: center;
 	  }
 	  #offline {
 		  display: none;
 		  width:100%;
 		  height:100%;
 		  background: url('images/damnyoumayank.jpg') no-repeat;
-		  background-size: 100% 100%;;
+		  background-size: 100% 100%;
 		  
 	  }
     </style>
@@ -42,7 +62,13 @@
   <body>
 	  <div class="eminem">
 	  	<div id="online">
-	  		<p>The internet's working, <span id="name"></span>. Praise be to Mayank!</p>
+			<div class="top">
+				<p>You're still online, <span id="name"></span>!</p>
+			</div>
+			<div class="middle"></div>
+			<div class="bottom">
+				<p>Praise be to Mayank!</p>
+			</div>
 	  	</div>
 		<div id="offline">
 			It's fucked.
@@ -89,6 +115,18 @@
 			$('#offline').hide();
 			$('.eminem').height('100%');
 			$('#online').show();
+			document.title = "ONLINE";
+			if($('#dynamicfav').length > 0){
+				$('#dynamicfav').attr('href', 'images/green.ico');
+			}
+			else {
+			    var link = document.createElement('link');
+			    link.type = 'image/x-icon';
+			    link.rel = 'shortcut icon';
+				link.id = 'dynamicfav'
+			    link.href = 'images/green.ico';
+			    document.getElementsByTagName('head')[0].appendChild(link);
+			}
         };
         window.offLineHandler = function(){
 			console.log('offline');
@@ -96,6 +134,18 @@
 			$('#offline').show();
 			$('.eminem').height($(document).height());
 	        $('body').scrollTop($(document).height());
+			document.title = "OFFLINE";
+			if($('#dynamicfav').length > 0){
+				$('#dynamicfav').attr('href', 'images/red.ico');
+			}
+			else {
+			    var link = document.createElement('link');
+			    link.type = 'image/x-icon';
+			    link.rel = 'shortcut icon';
+				link.id = 'dynamicfav'
+			    link.href = 'images/red.ico';
+			    document.getElementsByTagName('head')[0].appendChild(link);
+			}
         };
 		
     </script>
